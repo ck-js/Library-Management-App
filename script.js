@@ -52,3 +52,23 @@ function openDialog() {
 function closeDialog() {
     dialog.close();
 }
+
+// retrieve the form data 
+let formData = {};
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+function handleSubmit(event) {
+    event.preventDefault();
+
+    
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+
+    formData.title = title;
+    formData.author = author;
+
+}
+document.getElementById('my-form').addEventListener('submit',handleSubmit)
+})
