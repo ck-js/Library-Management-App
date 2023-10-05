@@ -66,8 +66,10 @@ function handleSubmit(event) {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
 
-    formData.title = title;
-    formData.author = author;
+    // formData.title = title;
+    // formData.author = author;
+const instance = new Book(title,author)
+addBookToLibrary(instance)
 
 }
 document.getElementById('my-form').addEventListener('submit',handleSubmit)
