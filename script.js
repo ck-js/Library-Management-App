@@ -27,22 +27,30 @@ function displayBook() {
     for (let i = 0; i < myLibrary.length; i++) {
         const bookObject = myLibrary[i];
 
+        const cardContainer = document.createElement('div')
         const title = document.createElement('h3')
 const author = document.createElement('p');
 const pages = document.createElement('p');
 const readStatus = document.createElement('p');
+const removeBtn = document.createElement('button')
+
+
+cardContainer.setAttribute('id', i);
+cardContainer.setAttribute('data-index', i);
+removeBtn.setAttribute('data-index', i);
+removeBtn.setAttribute('onclick', 'removeBook()');
 
 title.textContent = `${bookObject.title}`;
         author.textContent = `Author: ${bookObject.author}`;
         pages.textContent = `Pages: ${bookObject.pages}`;
         
-        output.appendChild(title);
-        output.appendChild(author);
-        output.appendChild(pages);
+        output.appendChild(cardContainer);
+        cardContainer.appendChild(title);
+        cardContainer.appendChild(author);
+        cardContainer.appendChild(pages);
+        cardContainer.appendChild(removeBtn)
     }
 } 
- let book1 = new Book('Range', 'Matthew Walker', 325, false)
-let book2 = new Book('4 Hour Work Week', 'Tim Ferris', 325, false)
 
 // dialog element 
 const dialog = document.getElementById('my-dialog');
@@ -71,6 +79,10 @@ function handleSubmit(event) {
 const instance = new Book(title,author)
 addBookToLibrary(instance)
 
+displayBook()
+closeDialog()
+
 }
 document.getElementById('my-form').addEventListener('submit',handleSubmit)
+
 })
