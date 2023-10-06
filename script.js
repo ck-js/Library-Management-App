@@ -38,7 +38,7 @@ const removeBtn = document.createElement('button')
 cardContainer.setAttribute('id', i);
 cardContainer.setAttribute('data-index', i);
 removeBtn.setAttribute('data-index', i);
-removeBtn.setAttribute('onclick', 'removeBook()');
+removeBtn.setAttribute('onclick', 'removeBook(event)');
 
 title.textContent = `${bookObject.title}`;
         author.textContent = `Author: ${bookObject.author}`;
@@ -86,3 +86,13 @@ closeDialog()
 document.getElementById('my-form').addEventListener('submit',handleSubmit)
 
 })
+
+function removeBook(event) {
+const element = event.target;
+const dataIndex = +element.getAttribute('data-index')
+console.log(typeof(dataIndex));
+const libraryIndexValue = myLibrary[dataIndex]
+
+console.log(libraryIndexValue);
+
+}
