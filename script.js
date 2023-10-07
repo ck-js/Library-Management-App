@@ -31,13 +31,16 @@ function displayBook() {
 const author = document.createElement('p');
 const pages = document.createElement('p');
 const readStatusLabel = document.createElement('label');
-readStatusLabel.htmlFor = 'checkbox';
+// readStatusLabel.setAttribute('for', i)
+readStatusLabel.htmlFor = 'checkbox' + ' ' + i;
 readStatusLabel.appendChild(document.createTextNode('Read Status'))
 
 
 const readStatusCheckbox = document.createElement('input');
 readStatusCheckbox.type = 'checkbox';
-readStatusCheckbox.id = 'checkbox'
+readStatusCheckbox.id = 'checkbox' + ' ' + i;
+// readStatusLabel.appendChild(readStatusCheckbox)
+
 const removeBtn = document.createElement('button')
 
 
@@ -47,6 +50,8 @@ cardContainer.setAttribute('id', i);
 cardContainer.setAttribute('data-index', i);
 removeBtn.setAttribute('data-index', i);
 removeBtn.setAttribute('onclick', 'removeBook(event)');
+readStatusCheckbox.setAttribute('data-index', i)
+
 
 title.textContent = `${bookObject.title}`;
         author.textContent = `Author: ${bookObject.author}`;
@@ -58,7 +63,7 @@ title.textContent = `${bookObject.title}`;
         cardContainer.appendChild(author);
         cardContainer.appendChild(pages);
         cardContainer.appendChild(removeBtn)
-        cardContainer.appendChild(readStatusLabel)
+        cardContainer.appendChild(readStatusLabel);
         cardContainer.appendChild(readStatusCheckbox);
 
 
