@@ -90,11 +90,11 @@ document.getElementById('my-form').addEventListener('submit',handleSubmit)
 function removeBook(event) {
 const element = event.target;
 const dataIndex = +element.getAttribute('data-index')
+const cardContainer = element.parentNode;
+const outputContainer = cardContainer.parentNode;
 
-const elementContainer =document.querySelector('div[data-index="dataIndex"]'); 
-elementContainer.parentNode.removeChild(element)
+outputContainer.removeChild(cardContainer)
 
-// const libraryIndexValue = myLibrary[dataIndex]
 myLibrary.splice(dataIndex, 1)
 
 
