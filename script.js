@@ -19,7 +19,6 @@ this.info = function() {
 }
 function addBookToLibrary(bookObject) {
     myLibrary.push(bookObject)
-
 }
 function displayBook() {
     const output = document.getElementById('output');
@@ -31,8 +30,17 @@ function displayBook() {
         const title = document.createElement('h3')
 const author = document.createElement('p');
 const pages = document.createElement('p');
-const readStatus = document.createElement('p');
+const readStatusLabel = document.createElement('label');
+readStatusLabel.htmlFor = 'checkbox';
+readStatusLabel.appendChild(document.createTextNode('Read Status'))
+
+
+const readStatusCheckbox = document.createElement('input');
+readStatusCheckbox.type = 'checkbox';
+readStatusCheckbox.id = 'checkbox'
 const removeBtn = document.createElement('button')
+
+
 
 
 cardContainer.setAttribute('id', i);
@@ -43,12 +51,17 @@ removeBtn.setAttribute('onclick', 'removeBook(event)');
 title.textContent = `${bookObject.title}`;
         author.textContent = `Author: ${bookObject.author}`;
         pages.textContent = `Pages: ${bookObject.pages}`;
+
         
         output.appendChild(cardContainer);
         cardContainer.appendChild(title);
         cardContainer.appendChild(author);
         cardContainer.appendChild(pages);
         cardContainer.appendChild(removeBtn)
+        cardContainer.appendChild(readStatusLabel)
+        cardContainer.appendChild(readStatusCheckbox);
+
+
     }
 } 
 
@@ -62,7 +75,6 @@ function closeDialog() {
 }
 
 // retrieve the form data 
-let formData = {};
 
 document.addEventListener('DOMContentLoaded', () => {
 
