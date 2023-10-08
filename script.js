@@ -31,14 +31,14 @@ function displayBook() {
 const author = document.createElement('p');
 const pages = document.createElement('p');
 const readStatusLabel = document.createElement('label');
-// readStatusLabel.setAttribute('for', i)
-readStatusLabel.htmlFor = 'checkbox' + ' ' + i;
+
+readStatusLabel.htmlFor = 'checkbox' + '-' + i;
 readStatusLabel.appendChild(document.createTextNode('Read Status'))
 
 
 const readStatusCheckbox = document.createElement('input');
 readStatusCheckbox.type = 'checkbox';
-readStatusCheckbox.id = 'checkbox' + ' ' + i;
+readStatusCheckbox.id = 'checkbox' + '-' + i;
 // readStatusLabel.appendChild(readStatusCheckbox)
 
 const removeBtn = document.createElement('button')
@@ -68,6 +68,7 @@ title.textContent = `${bookObject.title}`;
 
 
     }
+    
 } 
 
 // dialog element 
@@ -119,3 +120,59 @@ displayBook()
 
 }
 
+// function checkAllBoxes() {
+// let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+// checkboxes.forEach((checkbox) => {
+//     checkbox.checked = true;
+// })
+
+// }
+// access the dynamic checkbox input
+
+function readStatusChecked(dataIndex) {
+const index = dataIndex;
+const bookObject = myLibrary[index]
+bookObject.readStatus = true;
+console.log(bookObject);
+
+getPrototype(bookObject)
+}
+function readStatusUnchecked(dataIndex) {
+    const index = dataIndex;
+    const bookObject = myLibrary[index]
+    bookObject.readStatus = false;
+    console.log(bookObject);
+    
+    getPrototype(bookObject)
+    }
+
+
+function getPrototype(obj) {
+     return Object.getPrototypeOf(obj);
+}
+
+
+
+
+
+
+const output = document.getElementById('output');
+output.addEventListener('click', event => {
+  const target = event.target;
+const dataIndex = +target.getAttribute('data-index');
+
+  if (target.checked) {
+    console.log(target.id + 'is checked');
+    console.log(dataIndex);
+    readStatusChecked(dataIndex)
+    
+  }
+  if (!(target.checked)) {
+console.log(target.id + ' is unchecked');
+readStatusUnchecked(dataIndex)
+
+  }
+    // console.log(target.id);
+  
+})
