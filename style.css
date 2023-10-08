@@ -1,5 +1,29 @@
+:root {
+
+}
 body,
 html {
     background-color: black;
     color: white;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+
+}
+#output {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(3, 1fr);
+border: 5px solid white;
+height: 100%;
+}
+.card-item {
+    
+}
+.checked {
+    background-color: green;
+}
+.unchecked {
+    background-color: gray;
 }

@@ -4,7 +4,7 @@ const myLibrary = [
         title: 'Lean Startup',
         author: 'Eric Ries',
         pages: 554,
-        readStatus: true,
+        readStatus: undefined,
     },
 ];
 
@@ -44,10 +44,9 @@ readStatusCheckbox.id = 'checkbox' + '-' + i;
 const removeBtn = document.createElement('button')
 
 
-
-
 cardContainer.setAttribute('id', i);
 cardContainer.setAttribute('data-index', i);
+cardContainer.setAttribute('class', 'card-item');
 removeBtn.setAttribute('data-index', i);
 removeBtn.setAttribute('onclick', 'removeBook(event)');
 readStatusCheckbox.setAttribute('data-index', i)
@@ -62,14 +61,17 @@ title.textContent = `${bookObject.title}`;
         cardContainer.appendChild(title);
         cardContainer.appendChild(author);
         cardContainer.appendChild(pages);
-        cardContainer.appendChild(removeBtn)
+
         cardContainer.appendChild(readStatusLabel);
         cardContainer.appendChild(readStatusCheckbox);
+        cardContainer.appendChild(removeBtn)
 
-
+        
     }
+
+}
     
-} 
+
 
 // dialog element 
 const dialog = document.getElementById('my-dialog');
@@ -134,7 +136,6 @@ function readStatusChecked(dataIndex) {
 const index = dataIndex;
 const bookObject = myLibrary[index]
 bookObject.readStatus = true;
-console.log(bookObject);
 
 getPrototype(bookObject)
 }
@@ -152,7 +153,9 @@ function getPrototype(obj) {
      return Object.getPrototypeOf(obj);
 }
 
-
+function toggleCardBackground(dataIndex) {
+    
+}
 
 
 
@@ -166,11 +169,17 @@ const dataIndex = +target.getAttribute('data-index');
     console.log(target.id + 'is checked');
     console.log(dataIndex);
     readStatusChecked(dataIndex)
+
+    target.parentNode.classList.remove('unchecked')
+target.parentNode.classList.add('checked')
     
   }
   if (!(target.checked)) {
 console.log(target.id + ' is unchecked');
 readStatusUnchecked(dataIndex)
+
+target.parentNode.classList.remove('checked')
+target.parentNode.classList.add('unchecked')
 
   }
     // console.log(target.id);
