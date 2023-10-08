@@ -1,4 +1,5 @@
 
+
 const myLibrary = [
     {
         title: 'Lean Startup',
@@ -30,6 +31,7 @@ function displayBook() {
         const title = document.createElement('h3')
 const author = document.createElement('p');
 const pages = document.createElement('p');
+const checkboxContainer = document.createElement('div');
 const readStatusLabel = document.createElement('label');
 
 readStatusLabel.htmlFor = 'checkbox' + '-' + i;
@@ -39,7 +41,7 @@ readStatusLabel.appendChild(document.createTextNode('Read Status'))
 const readStatusCheckbox = document.createElement('input');
 readStatusCheckbox.type = 'checkbox';
 readStatusCheckbox.id = 'checkbox' + '-' + i;
-// readStatusLabel.appendChild(readStatusCheckbox)
+
 
 const removeBtn = document.createElement('button')
 
@@ -49,8 +51,11 @@ cardContainer.setAttribute('data-index', i);
 cardContainer.setAttribute('class', 'card-item');
 removeBtn.setAttribute('data-index', i);
 removeBtn.setAttribute('onclick', 'removeBook(event)');
+removeBtn.setAttribute('class', 'remove-btn');
 readStatusCheckbox.setAttribute('data-index', i)
-
+checkboxContainer.setAttribute('class', 'checkbox-container');
+// readStatusLabel.setAttribute('class', 'checkbox')
+// readStatusCheckbox.setAttribute('class', 'checkbox')
 
 title.textContent = `${bookObject.title}`;
         author.textContent = `Author: ${bookObject.author}`;
@@ -62,8 +67,9 @@ title.textContent = `${bookObject.title}`;
         cardContainer.appendChild(author);
         cardContainer.appendChild(pages);
 
-        cardContainer.appendChild(readStatusLabel);
-        cardContainer.appendChild(readStatusCheckbox);
+        cardContainer.appendChild(checkboxContainer)
+        checkboxContainer.appendChild(readStatusLabel);
+        checkboxContainer.appendChild(readStatusCheckbox);
         cardContainer.appendChild(removeBtn)
 
         
@@ -170,16 +176,16 @@ const dataIndex = +target.getAttribute('data-index');
     console.log(dataIndex);
     readStatusChecked(dataIndex)
 
-    target.parentNode.classList.remove('unchecked')
-target.parentNode.classList.add('checked')
+    target.parentNode.parentNode.classList.remove('unchecked')
+target.parentNode.parentNode.classList.add('checked')
     
   }
   if (!(target.checked)) {
 console.log(target.id + ' is unchecked');
 readStatusUnchecked(dataIndex)
 
-target.parentNode.classList.remove('checked')
-target.parentNode.classList.add('unchecked')
+target.parentNode.parentNode.classList.remove('checked')
+target.parentNode.parentNode.classList.add('unchecked')
 
   }
     // console.log(target.id);
