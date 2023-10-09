@@ -165,7 +165,7 @@ function getPrototype(obj) {
 
 openDialog();
 
-
+document.body.classList.add('dark-mode')
 
 
 

@@ -11,6 +11,15 @@ html {
     height: 100vh;
 
 }
+.dark-mode {
+background-color: black;
+color: orange;
+}
+.light-mode {
+
+}
+
+
 #output {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -60,8 +69,20 @@ input {
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 20px;
+    color: white;
+    height: 80vh;
+    width: 40vw;
+font-size: 2rem;    
 }
 .form-control-wrapper {
     display: grid;
 
+}
+#my-form input,
+button {
+    background-color: black;
+    color: orange;
+    border: 1px solid gray;
+    border-radius: 5px;
+font-size: 2rem;
 }
