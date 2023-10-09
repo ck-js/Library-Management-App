@@ -6,12 +6,27 @@
     <title>Library</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>    
+<body id="body-container">    
+<div id="header-container">
+Librafy
+</div>
+
+    <!-- <div id="nav-container">
+
+    </div> -->
+
+    <div id="overview-container">
+Overview
+    </div>
+
+    <div id="output-header">
+Sort By & Toggle Theme
+    </div>
 <div id="output">
     
 </div>
 <button onclick="displayBook()">Display Book</button>
-<button onclick="openDialog()">Open Dialog </button>
+<button id="add-new-book" onclick="openDialog()" aria-label="Add new book">+</button>
 
 <dialog id="my-dialog" class="dark-mode">
 <form action="" id="my-form">
@@ -41,5 +56,9 @@
 </dialog>
 
     <script src="script.js"></script>
+
+
+<
+
 </body>
 </html>
