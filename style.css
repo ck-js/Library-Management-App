@@ -17,6 +17,7 @@ html {
 grid-template-rows: repeat(3, 1fr);
 border: 5px solid white;
 height: 100%;
+grid-gap: 40px;
 }
 .card-item {
     position: relative;
@@ -30,15 +31,37 @@ height: 100%;
     right: 10px;
     height: 50px;
     width: 50px;
+    cursor: pointer;
 }
 .checkbox-container {
     position: absolute;
     bottom:  20px;
     right: 20px;
+    
 }
+label,
+input {
+    cursor: pointer;
+}
+
 .checked {
     background-color: green;
 }
 .unchecked {
     background-color: gray;
+    color: black;
+}
+
+#my-dialog {
+
+
+}
+#my-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+}
+.form-control-wrapper {
+    display: grid;
+
 }

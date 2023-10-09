@@ -159,9 +159,13 @@ function getPrototype(obj) {
      return Object.getPrototypeOf(obj);
 }
 
-function toggleCardBackground(dataIndex) {
+// function toggleCardBackground(dataIndex) {
     
-}
+// }
+
+openDialog();
+
+
 
 
 
