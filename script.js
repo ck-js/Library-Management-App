@@ -74,7 +74,7 @@ title.textContent = `${bookObject.title}`;
 
         
     }
-
+    displayOverview();
 }
     
 
@@ -124,7 +124,7 @@ outputContainer.removeChild(cardContainer)
 myLibrary.splice(dataIndex, 1)
 
 
-displayBook()
+
 
 }
 
@@ -164,8 +164,19 @@ function getPrototype(obj) {
 // }
 
 openDialog();
+displayBook();
 
 document.body.classList.add('dark-mode')
+
+const overviewContainer = document.getElementById('overview-container')
+function displayOverview() {
+const totalBooks = document.getElementById('total-books')
+
+for (let i = 0; i < myLibrary.length; i++) {
+    totalBooks.textContent = 'Books on shelf: ' + myLibrary.length
+}
+}
+displayOverview();
 
 
 
