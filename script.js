@@ -5,7 +5,7 @@ const myLibrary = [
         title: 'Lean Startup',
         author: 'Eric Ries',
         pages: 554,
-        readStatus: undefined,
+        readStatus: false,
     },
 ];
 
@@ -174,9 +174,41 @@ const totalBooks = document.getElementById('total-books')
 
 for (let i = 0; i < myLibrary.length; i++) {
     totalBooks.textContent = 'Books on shelf: ' + myLibrary.length
+    
 }
 }
+function displayOverviewReadUnread() {
+    const booksRead = document.getElementById('books-read')
+const booksUnread = document.getElementById('books-unread')
+
+let read = 0;
+let unread = 0;
+
+for (let i = 0; i < myLibrary.length;i++) {
+let bookObject = myLibrary[i];
+
+if (bookObject.readStatus === false ) {
+    unread++;
+}
+if (bookObject.readStatus === true) {
+    read++
+} 
+booksUnread.textContent = 'Books Unread: ' + unread;
+booksRead.textContent = 'Books Read: ' + read;
+
+}
+
+
+}
+displayOverviewReadUnread();
+
+
+
 displayOverview();
+
+
+
+
 
 
 
@@ -204,5 +236,6 @@ target.parentNode.parentNode.classList.add('unchecked')
 
   }
     // console.log(target.id);
+    displayOverviewReadUnread();
   
 })

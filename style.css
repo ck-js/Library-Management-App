@@ -44,8 +44,22 @@ color: orange;
 }
 #overview-container {
     grid-column: 3 /4;
+    grid-row: 1;
+
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+
+
 
 }
+#overview-container p {
+padding: 0;
+margin: 5px 10px;
+
+}
+
 #output-header {
     grid-row: 2;
     grid-column: 1 / 4;
