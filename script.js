@@ -24,6 +24,10 @@ function addBookToLibrary(bookObject) {
 function displayBook() {
     const output = document.getElementById('output');
     
+    while (output.firstChild) {
+        output.removeChild(output.firstChild)
+    }
+
     for (let i = 0; i < myLibrary.length; i++) {
         const bookObject = myLibrary[i];
 
@@ -52,6 +56,7 @@ cardContainer.setAttribute('class', 'card-item');
 removeBtn.setAttribute('data-index', i);
 removeBtn.setAttribute('onclick', 'removeBook(event)');
 removeBtn.setAttribute('class', 'remove-btn');
+removeBtn.setAttribute('aria-label', 'Remove book from library')
 readStatusCheckbox.setAttribute('data-index', i)
 checkboxContainer.setAttribute('class', 'checkbox-container');
 // readStatusLabel.setAttribute('class', 'checkbox')
@@ -74,6 +79,7 @@ title.textContent = `${bookObject.title}`;
 
         
     }
+    
     displayOverview();
 }
     
@@ -202,12 +208,19 @@ booksRead.textContent = 'Books Read: ' + read;
 }
 displayOverviewReadUnread();
 
-
-
 displayOverview();
 
+function sortNewest() {
+    myLibrary.reverse();
 
+    displayBook();
+}
+function sortOldest() {
+    myLibrary.reverse();
 
+    displayBook();
+
+}
 
 
 
