@@ -6,7 +6,7 @@
     <title>Library</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body id="body-container">    
+<body id="body-container" class="dark-mode">    
 <div id="header-container">
 Librafy
 </div>
@@ -25,11 +25,21 @@ Librafy
 <h3>Sort By</h3>
 <button onclick="sortNewest()">Newest</button>
 <button onclick="sortOldest()">Oldest</button>
+<button onclick="sortAlphabetically()">Title(A-Z)</button>
+<button onclick="sortAuthor()">Author(A-Z)(A-Z)</button>
+<!-- <button onclick="sortReadStatusTrue()">Read Status</button> -->
     </div>
+<div id="theme-selector">
+    Theme 
+    <button id="toggle-theme" onclick="toggleTheme()">Light Mode</button>
+</div>
+
+
+
 <div id="output">
     
 </div>
-<button onclick="displayBook()">Display Book</button>
+
 <button id="add-new-book" onclick="openDialog()" aria-label="Add new book">+</button>
 
 <dialog id="my-dialog" class="dark-mode">

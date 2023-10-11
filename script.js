@@ -8,7 +8,6 @@ const myLibrary = [
         readStatus: false,
     },
 ];
-
 function Book(title,author,pages,readStatus) {
     this.title = title
     this.author = author
@@ -18,6 +17,7 @@ this.info = function() {
     alert(`Read ${this.title} by ${this.author} now!`)
 }
 }
+
 function addBookToLibrary(bookObject) {
     myLibrary.push(bookObject)
 }
@@ -221,8 +221,66 @@ function sortOldest() {
     displayBook();
 
 }
+function sortAlphabetically() {
+    myLibrary.sort((a,b) => {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+
+        if (titleA < titleB) {
+            return -1;
+        }
+        if (titleA > titleB) {
+            return 1;
+        }
+        return 0;
+    })
+    displayBook();
+}
+function sortAuthor() {
+    myLibrary.sort((a,b) => {
+        const authorA = a.author.toLowerCase();
+        const authorB = b.author.toLowerCase();
+
+        if (authorA < authorB) {
+            return -1;
+        }
+        if (authorA > authorB) {
+            return 1;
+        }
+        return 0;
+    })
+    displayBook();
+}
+
+// sort books by order read status, could not find solution for adding new array over the original one
+// function sortReadStatusTrue() {
+//      let filteredArray = myLibrary.filter(
+//         obj => obj.readStatus ===true)
+//         console.log(filteredArray);
+            
+//             displayBook();
+        
+//     }
+
+function toggleTheme() {
+const body = document.getElementById('body-container')
+const button = document.getElementById('toggle-theme')
+const isDarkMode = body.classList.contains('dark-mode')
+
+if (isDarkMode) {
+    body.classList.remove('dark-mode')
+    body.classList.add('light-mode')
+button.textContent = 'Dark Mode'
+}else {
+    body.classList.remove('light-mode')
+    body.classList.add('dark-mode')
+    button.textContent = 'Light Mode'
+}
 
 
+
+
+}
 
 
 
