@@ -36,6 +36,8 @@ function displayBook() {
 const author = document.createElement('p');
 const pages = document.createElement('p');
 const checkboxContainer = document.createElement('div');
+const toggleSwitch = document.createElement('span');
+toggleSwitch.setAttribute('class', 'slider round')
 const readStatusLabel = document.createElement('label');
 
 readStatusLabel.htmlFor = 'checkbox' + '-' + i;
@@ -57,6 +59,7 @@ removeBtn.setAttribute('data-index', i);
 removeBtn.setAttribute('onclick', 'removeBook(event)');
 removeBtn.setAttribute('class', 'remove-btn');
 removeBtn.setAttribute('aria-label', 'Remove book from library')
+removeBtn.textContent = 'X';
 readStatusCheckbox.setAttribute('data-index', i)
 checkboxContainer.setAttribute('class', 'checkbox-container');
 // readStatusLabel.setAttribute('class', 'checkbox')
@@ -75,6 +78,7 @@ title.textContent = `${bookObject.title}`;
         cardContainer.appendChild(checkboxContainer)
         checkboxContainer.appendChild(readStatusLabel);
         checkboxContainer.appendChild(readStatusCheckbox);
+        checkboxContainer.appendChild(toggleSwitch);
         cardContainer.appendChild(removeBtn)
 
         
@@ -169,8 +173,7 @@ function getPrototype(obj) {
     
 // }
 
-openDialog();
-displayBook();
+
 
 document.body.classList.add('dark-mode')
 
@@ -310,3 +313,6 @@ target.parentNode.parentNode.classList.add('unchecked')
     displayOverviewReadUnread();
   
 })
+// openDialog();
+displayBook();
+

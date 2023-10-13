@@ -74,8 +74,13 @@ padding-left: 30px;
 #output-header button {
     font-size: 1rem;
     cursor: pointer;
+    background-color: inherit;
+    color: inherit;
 }
-#theme-selector {
+#theme-selector button {
+background-color: inherit;
+color: inherit;
+border: 1px solid  rgb(102, 19, 102);
 
 }
 
@@ -86,37 +91,48 @@ padding-left: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(3, 300px);
-border: 5px solid white;
+padding: 5%;
 height: auto;
 grid-gap: 40px;
+border-top: 10px solid rgb(102, 19, 102);
+margin-top: 5px;
 }
 .card-item {
     position: relative;
-    border: 5px solid white;
-    text-align: center;
+    border: 3px solid  rgb(102, 19, 102);
+    border-radius: 30px;
+text-align: center;
+padding-left: 15%;
 }
 .card-item .remove-btn {
-    background-color: yellow;
+border: none;
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 10px;
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
 }
 .checkbox-container {
     position: absolute;
     bottom:  20px;
     right: 20px;
-    
+    display: inline-block;
+
 }
 label,
 input {
     cursor: pointer;
 }
+.checkbox-container input {    
+    width: 20px;
+    height: 20px;
+background-color: orange;
+
+}
 
 .checked {
-    background-color: green;
+    background-color: rgb(2, 109, 2);
 }
 .unchecked {
     background-color: gray;
@@ -124,6 +140,8 @@ input {
 }
 
 #my-dialog {
+background-color: inherit;
+color: inherit;
 
 
 }
@@ -135,6 +153,8 @@ input {
     height: 80vh;
     width: 40vw;
 font-size: 2rem;    
+background-color: inherit;
+color: inherit;
 }
 .form-control-wrapper {
     display: grid;
@@ -142,8 +162,8 @@ font-size: 2rem;
 }
 #my-form input,
 button {
-    background-color: black;
-    color: orange;
+    background-color: inherit;
+color: inherit;
     border: 1px solid gray;
     border-radius: 5px;
 font-size: 2rem;
