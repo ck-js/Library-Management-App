@@ -1,5 +1,4 @@
 
-
 const myLibrary = [
     {
         title: 'Lean Startup',
@@ -8,15 +7,28 @@ const myLibrary = [
         readStatus: false,
     },
 ];
-function Book(title,author,pages,readStatus) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.readStatus = readStatus
-this.info = function() {
-    alert(`Read ${this.title} by ${this.author} now!`)
+
+// convert constructor to class syntax
+class Book {
+    constructor(title,author,pages,readStatus)  {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
 }
-}
+
+
+
+// function Book(title,author,pages,readStatus) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.readStatus = readStatus
+// this.info = function() {
+//     alert(`Read ${this.title} by ${this.author} now!`)
+// }
+// }
 
 function addBookToLibrary(bookObject) {
     myLibrary.push(bookObject)
@@ -109,10 +121,11 @@ function handleSubmit(event) {
     
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
 
     // formData.title = title;
     // formData.author = author;
-const instance = new Book(title,author)
+const instance = new Book(title,author, pages)
 addBookToLibrary(instance)
 
 displayBook()
@@ -315,4 +328,8 @@ target.parentNode.parentNode.classList.add('unchecked')
 })
 // openDialog();
 displayBook();
+
+
+
+
 
