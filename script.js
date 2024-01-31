@@ -123,8 +123,7 @@ function handleSubmit(event) {
     let author = document.getElementById('author').value;
     let pages = document.getElementById('pages').value;
 
-    // formData.title = title;
-    // formData.author = author;
+    
 const instance = new Book(title,author, pages)
 addBookToLibrary(instance)
 
